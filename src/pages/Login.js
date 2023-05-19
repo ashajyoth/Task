@@ -45,7 +45,7 @@ export default function Login() {
         "Content-Type": "application/json",
       };
       try {
-        const resp = await axios.post("http://localhost:4000/api/v1/login", values, {
+        const resp = await axios.post("https://binary-dev.ecosmob.net:3001/api/v1/login", values, {
           headers,
         });
         if (resp?.data) {

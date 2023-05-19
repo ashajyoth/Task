@@ -13,7 +13,6 @@ import { VisaCard } from "../layout/sections/VisaCard";
 import { Transactions } from "../layout/sections/Transactions";
 import ChartData from "../layout/sections/ChartData";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
-import { Bonus } from "../layout/sections/Bonus";
 const Page = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
@@ -42,29 +41,49 @@ const Page = () => {
           </Grid>
           <Grid
             container
+            justifyContent={"space-between"}
+            spacing={isSmallScreen ? 2 : 4}>
+            <Grid item xs={12} md={6} lg={6}>
+              <Grid container flexDirection={"column"} xs={12}>
+                <Grid item>
+                  <PlusCard />
+                </Grid>
+                <Grid item>
+                  <VisaCard />
+                </Grid>
+                <Grid item>
+                  <Typography variant="h5" padding="10px">
+                    Transactions
+                  </Typography>
+                  <Transactions />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={6} lg={6}>
+              <Grid item>
+                <Icons />
+              </Grid>
+
+              <Grid item>
+                <ChartData />
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <Grid
+            container
+            spacing={isSmallScreen ? 2 : 4}
+            flexDirection={"column"}
+            sx={{
+              height: "100%",
+            }}></Grid>
+          <Grid
+            container
+            flexDirection={"c"}
             spacing={isSmallScreen ? 2 : 4}
             sx={{
               height: "100%",
-            }}>
-            <Grid item xs={12} md={6} lg={6}>
-              <PlusCard />
-            </Grid>
-            <Grid item xs={12} md={6} lg={6}>
-              <Icons />
-            </Grid>
-            <Grid item xs={12} md={6} lg={6}>
-              <VisaCard />
-            </Grid>
-            <Grid item xs={12} md={6} lg={6}>
-              <ChartData />
-            </Grid>
-            <Grid item xs={12} md={6} lg={6}>
-              <Typography variant="h5" padding="10px">
-                Transactions
-              </Typography>
-              <Transactions />
-            </Grid>
-          </Grid>
+            }}></Grid>
         </Container>
       </Box>
     </>

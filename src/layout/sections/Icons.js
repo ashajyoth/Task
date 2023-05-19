@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import QrCode2Icon from "@mui/icons-material/QrCode2";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
@@ -14,7 +13,6 @@ import {
 } from "@mui/material";
 
 export const Icons = () => {
-
   const cardData = [
     {
       id: 1,
@@ -56,7 +54,7 @@ export const Icons = () => {
 
   return (
     <>
-      <Grid container spacing={1} >
+      <Grid container spacing={1}>
         {cardData.map((card) => (
           <Grid item xs={12} sm={6} md={3} key={card.id}>
             <Card>
@@ -82,5 +80,3 @@ export const Icons = () => {
     </>
   );
 };
-
-

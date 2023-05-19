@@ -1,10 +1,7 @@
-import PropTypes from "prop-types";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import { Avatar, Card, Stack, SvgIcon, Typography } from "@mui/material";
+import { Card, Stack, SvgIcon, Typography } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import PinterestIcon from "@mui/icons-material/Pinterest";
-export const Transactions = (props) => {
-  const { sx } = props;
+export const Transactions = () => {
   const transaction = [
     {
       id: 1,
@@ -31,11 +28,10 @@ export const Transactions = (props) => {
   ];
   return (
     <>
-      
-        <Card  >
-            {transaction.map((item) => (
+      <Card>
+        {transaction.map((item) => (
           <Stack
-          key={item.id}
+            key={item.id}
             style={{
               display: "flex",
               alignItems: "center",
@@ -63,14 +59,8 @@ export const Transactions = (props) => {
               {item.amount}
             </Typography>
           </Stack>
-          ))}
-        </Card>
-      
+        ))}
+      </Card>
     </>
   );
-};
-
-Transactions.propTypes = {
-  value: PropTypes.string,
-  sx: PropTypes.object,
 };

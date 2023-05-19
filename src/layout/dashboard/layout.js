@@ -1,38 +1,35 @@
-import { useCallback, useEffect, useState } from 'react';
-import { styled } from '@mui/material/styles';
-import { SideNav } from './sidenav';
-import { useLocation } from 'react-router-dom';
-import Page from '../../pages';
-import { TopNav } from './topnav';
+import { useCallback, useEffect, useState } from "react";
+import { styled } from "@mui/material/styles";
+import { SideNav } from "./sidenav";
+import { useLocation } from "react-router-dom";
+import Page from "../../pages";
+import { TopNav } from "./topnav";
 const SIDE_NAV_WIDTH = 280;
-const LayoutRoot = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flex: '1 1 auto',
-  maxWidth: '100%',
-  [theme.breakpoints.up('lg')]: {
-    paddingLeft: SIDE_NAV_WIDTH
-  }
+const LayoutRoot = styled("div")(({ theme }) => ({
+  display: "flex",
+  flex: "1 1 auto",
+  maxWidth: "100%",
+  [theme.breakpoints.up("lg")]: {
+    paddingLeft: SIDE_NAV_WIDTH,
+  },
 }));
 
-const LayoutContainer = styled('div')({
-  display: 'flex',
-  flex: '1 1 auto',
-  flexDirection: 'column',
-  width: '100%'
+const LayoutContainer = styled("div")({
+  display: "flex",
+  flex: "1 1 auto",
+  flexDirection: "column",
+  width: "100%",
 });
 
 export const Layout = () => {
   const location = useLocation();
   const [openNav, setOpenNav] = useState(false);
 
-  const handlePathnameChange = useCallback(
-    () => {
-      if (openNav) {
-        setOpenNav(false);
-      }
-    },
-    [openNav]
-  );
+  const handlePathnameChange = useCallback(() => {
+    if (openNav) {
+      setOpenNav(false);
+    }
+  }, [openNav]);
 
   useEffect(
     () => {
@@ -44,14 +41,11 @@ export const Layout = () => {
 
   return (
     <>
-    <TopNav onNavOpen={() => setOpenNav(true)} />
-      <SideNav
-        onClose={() => setOpenNav(false)}
-        open={openNav}
-      />
+      <TopNav onNavOpen={() => setOpenNav(true)} />
+      <SideNav onClose={() => setOpenNav(false)} open={openNav} />
       <LayoutRoot>
         <LayoutContainer>
-          <Page/>
+          <Page />
         </LayoutContainer>
       </LayoutRoot>
     </>

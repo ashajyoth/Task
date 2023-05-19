@@ -1,52 +1,52 @@
-import PropTypes from "prop-types";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import {
-  Avatar,
   Card,
-  CardContent,
   Stack,
   SvgIcon,
-  Box,
   Typography,
   Divider,
-  Grid,
-  useMediaQuery
+  useMediaQuery,
 } from "@mui/material";
 export const PlusCard = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   return (
-    <Card >
+    <Card>
       <Stack
-      direction={isSmallScreen ? "column" : "row"}
-      alignItems={isSmallScreen ? "center" : "flex-start"}
-      justifyContent="space-between"
-      padding={isSmallScreen ? 1 : 2}>
+        direction={isSmallScreen ? "column" : "row"}
+        alignItems={isSmallScreen ? "center" : "flex-start"}
+        justifyContent="space-between"
+        padding={isSmallScreen ? 1 : 2}>
         <SvgIcon>
           <CreditCardIcon />
         </SvgIcon>
-          <Typography variant="subtitle1" color="textPrimary">
-            Citibank Plus
-          </Typography>
-          <SvgIcon sx={{ color: "gray" }}>
+        <Typography variant="subtitle1" color="textPrimary">
+          Citibank Plus
+        </Typography>
+        <SvgIcon sx={{ color: "gray" }}>
           <MoreHorizIcon />
         </SvgIcon>
-         </Stack>
-          <Stack 
-           direction={isSmallScreen ? "column" : "row"}
-           alignItems="center"
-           justifyContent="space-between"
-           padding={isSmallScreen ? 1 : 2}>
-            <Typography variant="body2" color="textPrimary" paddingLeft={20}>
-              Balance:
-            </Typography>
-            <Typography variant="subtitle1" color="textPrimary">
-              $2505
-            </Typography>
-        </Stack>
+      </Stack>
+      <Stack
+        direction={isSmallScreen ? "column" : "row"}
+        alignItems="center"
+        justifyContent="space-between"
+        padding={isSmallScreen ? 1 : 2}>
+        <Typography variant="body2" color="textPrimary" paddingLeft={20}>
+          Balance:
+        </Typography>
+        <Typography variant="subtitle1" color="textPrimary">
+          $2505
+        </Typography>
+      </Stack>
       <Divider />
-      <Stack direction="row" alignItems="center" padding={2} justifyContent="space-between" paddingLeft={22}>
+      <Stack
+        direction="row"
+        alignItems="center"
+        padding={2}
+        justifyContent="space-between"
+        paddingLeft={22}>
         <Typography variant="body2" color="textinfo">
           Overdraft:
         </Typography>
@@ -56,33 +56,29 @@ export const PlusCard = () => {
       </Stack>
       <Divider />
       <Stack
-            style={{
-              display: "flex",
-              alignItems: "center",
-              flexDirection: "row",
-              padding: "10px",
-            }}>
-            <SvgIcon>
-              <CreditCardIcon />
-            </SvgIcon>
-            <Stack
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                paddingLeft: "130px",
-              }}>
-              <Typography variant="subtitle1" color="textinfo">
-                Mom's Card
-              </Typography>
-              <Typography variant="body2" color="textinfo">
-                Additional Card
-              </Typography>
-            </Stack>
-            </Stack>
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "row",
+          padding: "10px",
+        }}>
+        <SvgIcon>
+          <CreditCardIcon />
+        </SvgIcon>
+        <Stack
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            paddingLeft: "130px",
+          }}>
+          <Typography variant="subtitle1" color="textinfo">
+            Mom's Card
+          </Typography>
+          <Typography variant="body2" color="textinfo">
+            Additional Card
+          </Typography>
+        </Stack>
+      </Stack>
     </Card>
   );
-};
-
-PlusCard.prototypes = {
-  sx: PropTypes.object,
 };

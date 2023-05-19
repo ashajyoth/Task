@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import SearchIcon from '@mui/icons-material/Search';
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import SearchIcon from "@mui/icons-material/Search";
 
 import {
   Box,
@@ -28,15 +28,13 @@ export const SideNav = (props) => {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-      }}
-    >
+      }}>
       <Box sx={{ p: 1 }}>
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
-          }}
-        >
+          }}>
           <Tooltip title="Notifications">
             <IconButton>
               <SvgIcon fontSize="small">
@@ -59,8 +57,7 @@ export const SideNav = (props) => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "cemter",
-        }}
-      >
+        }}>
         <Avatar
           sx={{
             cursor: "pointer",
@@ -80,9 +77,8 @@ export const SideNav = (props) => {
           py: 3,
           my: 6,
           borderRadius: "15px",
-          backgroundColor: '#382569',
-        }}
-      >
+          backgroundColor: "#382569",
+        }}>
         <Stack
           component="ul"
           spacing={1}
@@ -90,8 +86,7 @@ export const SideNav = (props) => {
             listStyle: "none",
             p: 0,
             m: 0,
-          }}
-        >
+          }}>
           {items.map((item) => {
             const active = item.path ? location.pathname === item.path : false;
 
@@ -124,8 +119,7 @@ export const SideNav = (props) => {
             width: 280,
           },
         }}
-        variant="permanent"
-      >
+        variant="permanent">
         {content}
       </Drawer>
     );
@@ -144,8 +138,7 @@ export const SideNav = (props) => {
         },
       }}
       sx={{ zIndex: (theme) => theme.zIndex.appBar + 100 }}
-      variant="temporary"
-    >
+      variant="temporary">
       {content}
     </Drawer>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
-import { Card } from "@mui/material";
+import { Card, Tab, Tabs, MenuItem, Select } from "@mui/material";
 
 function ChartData() {
   const options = {
@@ -20,7 +20,10 @@ function ChartData() {
               label: "Restaurants",
               formatter: function (w) {
                 const value = w.globals.series[3];
-                const percentage = (value / w.globals.seriesTotals.reduce((a, b) => a + b) * 100).toFixed(2);
+                const percentage = (
+                  (value / w.globals.seriesTotals.reduce((a, b) => a + b)) *
+                  100
+                ).toFixed(2);
                 return `$ ${value} ${percentage}%`;
               },
               fontSize: "24px",
@@ -36,7 +39,10 @@ function ChartData() {
   return (
     <React.Fragment>
       <div>
-        <h2>Donut Chart</h2>
+        <Tabs sx={{ mb: 3 }} value="costs">
+          <Tab label="Costs" value="costs" />
+          <Tab label="Income" value="income" />
+        </Tabs>
         <Chart
           options={options}
           series={series}
@@ -45,7 +51,7 @@ function ChartData() {
           height={300}
         />
       </div>
-      <div style={{ display: "flex", justifyContent: "space-around"}}>
+      <div style={{ display: "flex", justifyContent: "space-around" }}>
         {series.slice(0, 2).map((value, index) => (
           <Card
             key={index}
@@ -55,8 +61,7 @@ function ChartData() {
               display: "flex",
               justifyContent: "space-around",
               alignItems: "center",
-            }}
-          >
+            }}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <div
                 style={{
@@ -64,16 +69,16 @@ function ChartData() {
                   width: "10px",
                   height: "10px",
                   marginRight: "5px",
-                  borderRadius: '50%'
-                }}
-              ></div>
-             <p>{options.labels[index]}</p>
+                  borderRadius: "50%",
+                }}></div>
+              <p>{options.labels[index]}</p>
             </div>
-             <p>$ {value}</p>
+            <p>$ {value}</p>
           </Card>
         ))}
       </div>
-      <div style={{ display: "flex", flexDirection: "column", padding: "20px" }}>
+      <div
+        style={{ display: "flex", flexDirection: "column", padding: "20px" }}>
         {series.slice(2).map((value, index) => (
           <Card
             key={index + 2}
@@ -83,9 +88,8 @@ function ChartData() {
               display: "flex",
               justifyContent: "space-around",
               alignItems: "center",
-              marginBottom: '20px'
-            }}
-          >
+              marginBottom: "20px",
+            }}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <div
                 style={{
@@ -93,10 +97,8 @@ function ChartData() {
                   width: "10px",
                   height: "10px",
                   marginRight: "5px",
-                  borderRadius: '50%'
-              
-                }}
-              ></div>
+                  borderRadius: "50%",
+                }}></div>
               <p>{options.labels[index + 2]}</p>
             </div>
             <p>$ {value}</p>
