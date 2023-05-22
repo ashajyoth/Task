@@ -26,7 +26,7 @@ export const VisaCard = () => {
         alignItems="center"
         justifyContent="space-between"
         padding={isSmallScreen ? 1 : 2}>
-        <Typography variant="body2" color="textPrimary" paddingLeft={20}>
+        <Typography variant="body2" color="textPrimary" paddingLeft="180px">
           Balance:
         </Typography>
         <Typography variant="subtitle1" color="textPrimary">

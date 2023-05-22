@@ -33,7 +33,7 @@ export const PlusCard = () => {
         alignItems="center"
         justifyContent="space-between"
         padding={isSmallScreen ? 1 : 2}>
-        <Typography variant="body2" color="textPrimary" paddingLeft={20}>
+        <Typography variant="body2" color="textPrimary" paddingLeft="180px">
           Balance:
         </Typography>
         <Typography variant="subtitle1" color="textPrimary">
@@ -47,7 +47,7 @@ export const PlusCard = () => {
         padding={2}
         justifyContent="space-between"
         paddingLeft={22}>
-        <Typography variant="body2" color="textinfo">
+        <Typography variant="body2" color="textinfo" paddingLeft="20px">
           Overdraft:
         </Typography>
         <Typography variant="body2" color="textinfo">
@@ -69,7 +69,7 @@ export const PlusCard = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            paddingLeft: "130px",
+            paddingLeft: "160px",
           }}>
           <Typography variant="subtitle1" color="textinfo">
             Mom's Card

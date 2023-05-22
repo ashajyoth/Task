@@ -55,7 +55,7 @@ export const Transactions = () => {
             <Typography
               variant="subtitle1"
               color="textinfo"
-              paddingLeft="110px">
+              paddingLeft="185px">
               {item.amount}
             </Typography>
           </Stack>
