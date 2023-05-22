@@ -15,29 +15,30 @@ import * as Yup from "yup";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
-     validationSchema : Yup.object({
-      email:  Yup
-      .string("")
-        .required("Invalid Credentials - Username/Password is Incorrect. Try again!"),
-        password: Yup
-        .string('')
+    validationSchema: Yup.object({
+      email: Yup.string("").required(
+        "Invalid Credentials - Username/Password is Incorrect. Try again!"
+      ),
+      password: Yup.string("")
         .matches(
           /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
-          'Invalid Credentials - Username/Password is Incorrect. Try again!')
-        .required('Invalid Credentials - Username/Password is Incorrect. Try again!'),
-    
+          "Invalid Credentials - Username/Password is Incorrect. Try again!"
+        )
+        .required(
+          "Invalid Credentials - Username/Password is Incorrect. Try again!"
+        ),
     }),
     onSubmit: async (values, helpers) => {
       const headers = {
@@ -45,24 +46,27 @@ export default function Login() {
         "Content-Type": "application/json",
       };
       try {
-        const resp = await axios.post("https://binary-dev.ecosmob.net:3001/api/v1/login", values, {
-          headers,
-        });
+        const resp = await axios.post(
+          "https://binary-dev.ecosmob.net:3001/api/v1/login",
+          values,
+          {
+            headers,
+          }
+        );
         if (resp?.data) {
           localStorage.setItem("token", resp?.data?.data?.token);
           navigate("/dashboard");
           toast.success("Logged in successfully");
         } else {
           if (resp.response.data.status === 400) {
-            console.log(resp?.response?.data?.errors?.msg, 'respresponse')
-            toast.error(resp?.response?.data?.errors?.msg)
-            
+            console.log(resp?.response?.data?.errors?.msg, "respresponse");
+            toast.error(resp?.response?.data?.errors?.msg);
           }
         }
       } catch ({ err }) {
-        toast.error(err.response.data.errors.msg)
+        toast.error(err.response.data.errors.msg);
       }
-    }
+    },
   });
 
   return (
@@ -80,7 +84,11 @@ export default function Login() {
         <Typography variant="h5" color="#484545" gutterBottom>
           Client Login
         </Typography>
-        <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box
+          component="form"
+          onSubmit={formik.handleSubmit}
+          noValidate
+          sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             error={!!(formik.touched.email && formik.errors.email)}

@@ -63,7 +63,6 @@ const Page = () => {
               <Grid item>
                 <Icons />
               </Grid>
-
               <Grid item>
                 <ChartData />
               </Grid>

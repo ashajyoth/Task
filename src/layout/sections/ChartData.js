@@ -1,6 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
-import { Card, Tab, Tabs, MenuItem, Select } from "@mui/material";
+import { Card, Tab, Tabs } from "@mui/material";
 
 function ChartData() {
   const options = {
